@@ -1,8 +1,4 @@
 ## Lucia Ceron
-Below is a **ready-to-paste README section** that follows your professor’s preferred template and adds the technical depth a recruiter or reviewer will expect.
-All headings start at level 2 (`##`) so they slot cleanly into a larger GitHub page.
-
----
 ## Project Description: Scalable HR Data Lake on AWS
 
 ### Project Title: Designing a Scalable HR Data Lake on AWS
