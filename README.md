@@ -176,6 +176,8 @@ Key dataset features:
 - Cost-effective architecture with continuous monitoring.
 - Key metrics and insights supporting HR strategic decisions.
 
+---
+
 ## Project Description: AWS Data Analytics Platform for the City of Vancouver
 
 ### Project Title: Designing and Implementing a Data Analytics Platform for Cultural Spaces in Vancouver
@@ -240,4 +242,79 @@ The dataset used in this project was obtained from the City of Vancouver Open Da
 - Certain cultural space types like Cafe/Restaurant/Bar showed consistent growth while others like Museums experienced decline.
 
 This project demonstrates end-to-end implementation of a cloud-based data analytics pipeline using AWS services, enabling public sector data-driven decision making.
+---
+
+## AWS Data Analytics Platform for City of Vancouver
+
+### Project Description
+This project involved the design and deployment of a comprehensive Data Analytics Platform (DAP) on AWS to support the City of Vancouver's data processing, governance, security, and monitoring requirements. The solution utilizes multiple AWS services to provide secure, reliable, and scalable data analytics capabilities.
+
+### Project Title
+AWS-Based Data Analytics Platform Migration for City of Vancouver
+
+### Objective
+The main objective was to architect and implement a secure and fully managed AWS data analytics solution that enables the City of Vancouver to efficiently ingest, process, govern, monitor, and store cultural spaces datasets, while ensuring data security, quality, compliance, and cost optimization.
+
+### Dataset
+The dataset focused on cultural spaces and included the following key fields:
+- `cultural_space_name`: Name of the cultural space
+- `year`: Year of data entry
+- `type`: Type of cultural space
+- `primary_use`: Main purpose of the space
+
+### Methodology
+
+#### 1. Data Security
+- **Encryption**: Implemented server-side encryption using AWS KMS with customer-managed keys (CMKs) to maintain full control over encryption keys.
+- **Versioning**: Enabled S3 bucket versioning to support data recovery and retention.
+- **Replication**: Configured S3 cross-region replication (CRR) to replicate data from primary buckets to backup buckets for disaster recovery:
+  - `cs-raw-luc` → `cs-raw-bac-luc`
+  - `cs-cln-luc` → `cs-cln-bac-luc`
+  - `cs-cur-luc` → `cs-cur-bac-luc`
+
+#### 2. Data Governance
+- **ETL Pipelines**: Developed visual ETL pipelines using AWS Glue Studio.
+- **Data Quality Evaluation**: Implemented data quality rules using `Evaluate Data Quality` nodes with conditions:
+  - Completeness: 
+    - `cultural_space_name` ≥ 90%
+    - `year` > 99%
+    - `type` ≥ 95%
+    - `primary_use` > 99%
+  - Uniqueness:
+    - `cultural_space_name` ≥ 80%
+- **Routing Results**: Automatically routed valid records to `cs-cln-luc/Quality_Check/Passed` and invalid records to `cs-cln-luc/Quality_Check/Failed`.
+
+#### 3. Data Monitoring
+- **CloudWatch Dashboards**: Created custom dashboards to monitor:
+  - S3 bucket size growth
+  - Glue ETL job performance
+  - AWS billing and usage metrics
+- **CloudWatch Alarms**: Configured alarms to send email notifications on:
+  - High AWS estimated charges
+  - Resource usage thresholds
+- **CloudTrail Auditing**: Enabled AWS CloudTrail for auditing user and system activities across the platform, improving traceability and troubleshooting capabilities.
+
+#### 4. Architecture Evaluation (Well-Architected Framework)
+- **Operational Excellence**: Automation via ETL pipelines and dashboards
+- **Security**: Customer-managed encryption keys and full audit trails
+- **Reliability**: Backup replication and versioning strategies
+- **Performance Efficiency**: Serverless ETL with Glue; scalable object storage with S3
+- **Cost Optimization**: Monitored with proactive billing alerts and usage dashboards
+
+### Tools and Technologies
+- **AWS S3** (Object Storage, Versioning, Replication)
+- **AWS KMS** (Key Management Service for encryption)
+- **AWS Glue** (ETL, Data Quality Checks)
+- **AWS CloudWatch** (Dashboards, Alarms, Metrics)
+- **AWS CloudTrail** (Logging & Auditing)
+- **AWS IAM** (Access Management - with fine-grained permissions)
+
+### Deliverables
+- Fully functional AWS data analytics platform for ingestion, transformation, and storage
+- Automated ETL pipelines with data quality controls
+- Secure storage with encryption, versioning, and cross-region replication
+- Real-time monitoring dashboards and proactive alerting
+- Comprehensive audit logs for compliance and incident response
+
+This project showcases a full-scale AWS cloud data analytics deployment for a public sector client, leveraging multiple AWS services to address real-world data management challenges.
 
