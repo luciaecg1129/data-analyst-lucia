@@ -176,4 +176,68 @@ Key dataset features:
 - Cost-effective architecture with continuous monitoring.
 - Key metrics and insights supporting HR strategic decisions.
 
+## Project Description: AWS Data Analytics Platform for the City of Vancouver
+
+### Project Title: Designing and Implementing a Data Analytics Platform for Cultural Spaces in Vancouver
+
+### Objective:
+The goal of this project was to design, build, and deploy a scalable Data Analytics Platform (DAP) on AWS for the City of Vancouver. The platform supports descriptive analysis to help city officials analyze trends in cultural space usage, ownership, and growth patterns in the downtown area.
+
+### Dataset:
+The dataset used in this project was obtained from the City of Vancouver Open Data Portal, focusing on cultural spaces from 2014 to 2020. Key features include:
+- Cultural Space Name
+- Type (e.g., Cafe/Restaurant/Bar, Museum, Education, etc.)
+- Primary Cultural Use
+- Square Footage
+- Ownership Type (Private, Non-Profit, Government)
+- Year of Data Collection
+- Geographic Coordinates
+
+### Methodology:
+
+#### 1. Data Ingestion:
+- Downloaded the dataset in CSV format.
+- Uploaded raw data to Amazon S3 with organized folder structure to allow scalability for future datasets.
+- S3 Bucket: `cs-raw-luc` following path `cs/Cultural_Spaces/year=20/CSV/`
+
+#### 2. Data Profiling:
+- Used AWS Glue DataBrew to profile data.
+- Identified issues such as missing values (e.g., 38% missing in 'square feet', 80% missing in 'number of seats').
+- Reviewed data quality before proceeding to cleaning phase.
+
+#### 3. Data Cleaning:
+- Used AWS Glue DataBrew to create cleaning recipes.
+- Actions included: correcting text inconsistencies, removing irrelevant columns, and deleting rows with missing critical values.
+- Cleaned data stored in S3 Bucket: `cs-cln-luc`.
+
+#### 4. Data Cataloging:
+- Used AWS Glue Data Catalog to create metadata tables.
+- Implemented crawlers to automatically extract schema from cleaned data.
+- Enriched data using ETL pipelines by adding fields like processing timestamps.
+- Curated data stored in S3 Bucket: `cs-cur-luc`.
+
+#### 5. Data Summarization:
+- Used Amazon Athena to run SQL queries for descriptive analysis.
+- Metrics calculated:
+  - Average Square Footage by Ownership Type (`avg_sqft_by_ownership`)
+  - Count of Cultural Spaces by Type (`num_cultural_spaces_by_type`)
+- Analyzed trends showing increasing private ownership and growth of specific cultural types.
+
+### Tools and Technologies:
+- AWS S3 (Storage)
+- AWS Glue (DataBrew, Data Catalog, ETL Pipeline)
+- Amazon Athena (Query Engine)
+- SQL (for data summarization)
+
+### Deliverables:
+- Fully functional AWS Data Analytics Platform.
+- Cleaned, cataloged, and query-ready dataset.
+- Descriptive analysis reports with trend insights.
+- SQL scripts and documented ETL processes.
+
+### Insights and Findings:
+- Private ownership of cultural spaces in downtown Vancouver increased significantly between 2014 and 2020.
+- Certain cultural space types like Cafe/Restaurant/Bar showed consistent growth while others like Museums experienced decline.
+
+This project demonstrates end-to-end implementation of a cloud-based data analytics pipeline using AWS services, enabling public sector data-driven decision making.
 
