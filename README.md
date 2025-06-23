@@ -143,3 +143,79 @@ The HR department provided two datasets critical for employee satisfaction and e
 This project demonstrates the advantages of cloud computing for data management. By leveraging AWS services, complex tasks such as data ingestion, data cleaning, and storage organization were automated efficiently. The seamless integration between S3 and Glue DataBrew allowed for simplified data preparation and scalable storage management.
 
 ---
+
+## Employee Satisfaction and Engagement Analysis using AWS Cloud Services
+
+### Project Description
+
+The project aimed to analyze employee satisfaction and performance metrics by designing and implementing a data analytics pipeline within the AWS ecosystem. This involved transforming raw HR datasets into a reliable Single Source of Truth (SST) to support descriptive, diagnostic, and prescriptive analysis aligned with business objectives.
+
+### Objective
+
+The primary objective was to analyze, design, implement, and evaluate a data pipeline solution to address the business question:
+
+*"What are the main factors impacting employee satisfaction and engagement?"*
+
+Through descriptive, diagnostic, and prescriptive analysis, the project aimed to provide reliable metrics to support HR decision-making.
+
+### Dataset
+
+The project utilized two key datasets provided by the HR Operations team:
+
+- **Employee Surveys:** capturing employee satisfaction, engagement, and qualitative feedback.
+- **Performance Reviews:** including employee evaluations, performance scores, and engagement records.
+
+Both datasets were delivered in CSV, with a quarterly update frequency.
+
+### Methodology
+
+#### 1. Data Collection and Preparation
+
+- Received datasets from HR team.
+- Loaded datasets into AWS S3.
+- Conducted data profiling and cleaning using AWS Glue DataBrew to address datatype inconsistencies and detailed record issues.
+
+#### 2. Cost Evaluation and Monitoring
+
+- Utilized AWS Pricing Calculator to estimate monthly and annual costs for data profiling and cleaning operations in AWS Glue, ensuring cost-efficiency.
+- Configured AWS CloudWatch alarms to monitor estimated costs and maintain budget control.
+
+#### 3. ETL Design
+
+- Designed an ETL (Extract, Transform, Load) process aligned with business questions.
+- Joined datasets using an inner join on EmployeeID.
+- Defined SQL transformations to calculate metrics such as:
+  - Average satisfaction per quarter.
+  - Engagement levels.
+  - Evaluation completion rates.
+- The integrated data was structured into a Single Source of Truth (SST), ensuring consistency, availability, and reliability for HR analytics.
+
+#### 4. ETL Implementation
+
+- Developed the ETL flow in AWS Glue Studio applying SQL-based transformations.
+- Stored processed data in S3 (Parquet format).
+- Registered datasets in the AWS Glue Data Catalog for accessibility through AWS Athena.
+- Enabled querying for key HR metrics and allowed ongoing evaluation.
+
+![project-3-engagement-analysis](images/project-3-engagement-analysis.png)
+
+### Tools and Technologies
+
+- AWS Glue (DataBrew, Studio, Data Catalog)
+- AWS Athena
+- AWS S3
+- AWS Pricing Calculator
+- AWS CloudWatch
+- SQL
+
+### Deliverables
+
+- A fully automated ETL pipeline for HR data.
+- Cost-effective architecture with continuous monitoring.
+- Key metrics and insights supporting HR strategic decisions.
+- Cost evaluation report.
+- Visual diagrams of data architecture and ETL flow.
+- Analytical outputs accessible via Athena for real-time HR decision support.
+
+---
+
