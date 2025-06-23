@@ -469,3 +469,86 @@ My projects used a combination of these models to build scalable data pipelines 
 ![case-study-3-cloud-svc-model](images/case-study-3-cloud-svc-model.png)
 
 ---
+
+## AWS Cost Analysis
+
+### Case Study 4: Total Cost of Ownership — Delaware North
+
+**Explanation of Results:**  
+I analyzed the Delaware North case where migrating to AWS significantly reduced total infrastructure costs. The shift from capital-intensive on-premise hardware to flexible cloud services resulted in operational cost savings, resource optimization, and scalability. This case highlighted the financial advantages of cloud migration based on AWS's Total Cost of Ownership (TCO) framework.
+
+![case-study-4-total-cost](images/case-study-4-total-cost.png)
+
+
+### Case Study 5: AWS Support Plans
+
+**Explanation of Results:**  
+Using AWS Pricing Calculator, I estimated projected costs for my data lake projects. For example, HR dataset ingestion was calculated at approximately $6.01 USD annually based on S3 storage with quarterly uploads. This tool enabled me to forecast costs accurately, assess financial feasibility, and plan resource usage effectively before deployment.
+
+![case-study-5-aws-est](images/case-study-5-aws-est.png)
+
+### Case Study 6: AWS Support Plans
+
+**Explanation of Results:**  
+I reviewed AWS Support Plan options: Basic, Developer, Business, and Enterprise. For production workloads, the Business Support Plan would provide 24/7 technical support, faster response times, infrastructure event management, and architectural guidance. This evaluation showed how selecting appropriate support levels can ensure operational continuity and effective issue resolution.
+
+![case-study-6-support-plan](images/case-study-6-support-plan.png)
+
+---
+
+## AWS Global infrastructure 
+
+**Explanation of Results:**
+
+The project was deployed in the us-east-1 (N. Virginia) AWS region, leveraging AWS's global infrastructure for high availability and resilience. This region provided multiple Availability Zones for fault tolerance, low-latency resource access, and geographic redundancy. This case study demonstrated how AWS’s global infrastructure supports business continuity, disaster recovery, and scalability.
+
+![case-study-7-globl-inf](images/case-study-7-globl-inf.png)
+
+---
+
+## AWS IAM 
+
+### (Case #8) Who is Responsible
+**Explanation of Results:**
+
+I analyzed AWS’s Shared Responsibility Model, which divides security responsibilities:
+-	AWS is responsible for security of the cloud (physical infrastructure, global network, hardware).
+-	Customers are responsible for security in the cloud (data protection, access management, identity governance).
+This understanding is crucial for correctly configuring IAM policies and securing workloads on AWS.
+
+![case-study-8-responsible](images/case-study-8-responsible.png)
+
+
+### IAM Practice Lab 1
+**Explanation of Results:**
+
+Through hands-on lab exercises, I configured IAM users, groups, and roles with custom policies. I applied the principle of least privilege, granting users only necessary access permissions. These practical tasks demonstrated how IAM controls secure resource access, prevent unauthorized actions, and support compliance within cloud environments.
+
+![case-study-9-iam-lab](images/case-study-9-iam-lab.png)
+
+---
+
+## AWS VPC
+**Explanation of Results:**
+
+In this lab activity, I designed a custom Virtual Private Cloud (VPC) with public and private subnets, route tables, internet gateways, and security groups. EC2 instances were deployed inside the VPC to simulate secure cloud networking. This exercise provided valuable experience in network isolation, controlled traffic flows, and the foundational principles of secure VPC design for cloud environments.
+
+![case-study-10-build-vpc](images/case-study-10-build-vpc.png)
+
+---
+
+## AWS Lambda 
+**Explanation of Results:**
+
+AWS Lambda was explored through lab activities where I created serverless functions triggered by S3 events. These functions automated simple tasks such as generating notifications and processing file uploads. This exercise introduced me to event-driven computing, serverless architecture benefits, and integration with CloudWatch for monitoring Lambda executions.
+
+![case-study-11-lambda](images/case-study-11-lambda.png)
+
+---
+
+## AWS EBS
+**Explanation of Results:**
+
+Amazon Elastic Block Store (EBS) volumes were attached to EC2 instances to provide persistent storage during data processing tasks. EBS offered scalable storage performance with snapshot capabilities for backup and recovery. These activities demonstrated how EBS supports compute workloads requiring durable, high-performance storage in cloud environments
+
+![images/case-study-12-ebs-lab](images/case-study-12-ebs-lab.png) 
