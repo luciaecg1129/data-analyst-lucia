@@ -376,4 +376,63 @@ This project demonstrates end-to-end implementation of a cloud-based data analyt
 
 ---
 
+## Secure Cloud Data Platform with Governance and Monitoring for City of Vancouver
+
+### Cloud Migration and Data Governance for Cultural Spaces Dataset - City of Vancouver
+
+#### Objective
+The objective of this project was to design and implement a Data Analytics Platform (DAP) on AWS to support the City of Vancouver's migration requirements. The project specifically focused on securely migrating the "Cultural Spaces" dataset, ensuring data governance, quality, monitoring, and resilience in alignment with municipal compliance and operational standards.
+
+#### Dataset
+The dataset used for this project was the City of Vancouver's "Cultural Spaces" dataset, containing information about cultural venues within the city. The dataset included the following key features:
+- Cultural Space Name
+- Year
+- Type
+- Primary Use
+- Other related metadata fields necessary for analytics
+
+#### Methodology
+
+##### 1. Data Collection and Preparation
+- The original Cultural Spaces dataset was ingested into Amazon S3 bucket named `cs-raw-luc`.
+- Implemented encryption using AWS KMS with a customer managed symmetric key to ensure full control over data encryption and compliance.
+- Enabled bucket versioning to support recovery and resilience.
+- Established replication rules to backup data into separate replica buckets (e.g., `cs-raw-bac-luc`).
+
+##### 2. Data Governance
+- Created an ETL pipeline incorporating AWS Glue and the "Evaluate Data Quality" node.
+- Defined data quality rules to evaluate completeness and uniqueness, including:
+  - Completeness (Cultural Space Name) >= 90%
+  - Uniqueness (Cultural Space Name) >= 80%
+  - Completeness (Year) > 99%
+  - Completeness (Type) >= 95%
+  - Completeness (Primary Use) > 99%
+- Configured ETL jobs to route validated records to `cs-cln-luc/Quality_Check/Passed` and invalid records to `cs-cln-luc/Quality_Check/Failed` for further review.
+
+##### 3. Data Monitoring
+- Configured AWS CloudWatch dashboards to monitor:
+  - S3 bucket sizes over time
+  - Resource usage by ETL pipelines
+  - AWS service estimated charges
+- Set up CloudWatch alarms to send email notifications when defined thresholds for resource usage or costs are exceeded.
+- Enabled AWS CloudTrail for system-wide logging and audit trails to track activity and support debugging.
+
+#### Tools and Technologies
+- AWS S3 (Storage, Replication, Versioning)
+- AWS KMS (Key Management Service)
+- AWS Glue (ETL, Data Quality Evaluation)
+- AWS CloudWatch (Dashboards, Alarms)
+- AWS CloudTrail (Activity Logging)
+
+#### Deliverables
+- Fully operational Data Analytics Platform in AWS for the City of Vancouver.
+- Secure, encrypted, and versioned data storage with automated backup replication.
+- Implemented data quality evaluation pipeline with clear segregation of passed and failed records.
+- Comprehensive monitoring dashboards and automated alarms for resource and cost monitoring.
+- Complete audit trail of system activities via CloudTrail logs.
+
+This project demonstrates secure cloud data migration, effective data governance practices, and proactive monitoring solutions, providing the City of Vancouver with a resilient and compliant data analytics infrastructure.
+
+---
+
 
