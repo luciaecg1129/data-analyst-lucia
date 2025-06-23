@@ -275,4 +275,105 @@ This project demonstrates the initial steps in building a scalable cloud-based d
 
 ---
 
+## AWS Data Analytic Platform for The City of Vancouver
+
+### Project Title: Migration and Descriptive Analysis of Cultural Spaces Data for The City of Vancouver
+
+### Objective:
+
+The objective of this project is to design, implement, and deploy a cloud-based data analytic platform (DAP) for the City of Vancouver using AWS services. The platform enables descriptive analysis on the 'Cultural Spaces' dataset, focusing on analyzing trends in average square footage by ownership type and the distribution of cultural space types over time. The final goal is to assist city officials in decision-making and resource allocation.
+
+### Dataset:
+
+The dataset was sourced from the City of Vancouver's open data portal, specifically selecting the "Cultural Spaces" dataset, which includes:
+
+* Cultural Space Name
+* Type of Cultural Space (e.g., Café/Restaurant/Bar, Museum, Education)
+* Primary Cultural Use
+* Square Footage
+* Ownership Type (Private, Non-profit, Government)
+* Geo Coordinates
+* Year of data collection: 2014, 2015, 2016, 2017, 2020
+* Record Count: Initially 1,942 records; filtered to 472 records for Downtown Vancouver
+
+### Methodology:
+
+#### 1. Data Collection and Preparation:
+
+* Downloaded the dataset as CSV from the City of Vancouver official portal.
+* Applied geographic filtering to retain only records for Downtown Vancouver to optimize AWS storage costs.
+* Designed the raw data ingestion structure in S3: `s3://cs-raw-luc/cs/Cultural_Spaces/year=20/CSV/cultural-spaces.csv`
+* Uploaded raw data into the S3 bucket `cs-raw-luc`.
+
+![project-5-design](images/project-5-design.png)
+
+#### 2. Data Profiling:
+
+* Executed data profiling using AWS Glue DataBrew.
+* Identified key data issues:
+
+  * 13% missing 'website' values.
+  * 38% missing 'square feet' values.
+  * 80% missing 'number of seats' values.
+  * 'Active Space' and geo fields were deemed unnecessary.
+* Created profiling job outputs into `s3://cs-cln-luc/Cultural_Spaces/`.
+
+#### 3. Data Cleaning:
+
+* Developed a cleaning recipe in AWS Glue DataBrew including:
+
+  * Replacing inconsistent text values in 'TYPE' and 'PRIMARY\_USE' columns.
+  * Dropping non-informative columns ('Active Space', 'Geom', 'GeoPoint2D').
+  * Deleting rows with missing 'OWNERSHIP' values.
+* Stored cleaned data into `s3://cs-cln-luc` and created partitions based on 'Ownership'.
+
+#### 4. Data Cataloging:
+
+* Created an AWS Glue Data Catalog `cs-data-catalog-luc`.
+* Used crawlers to automatically populate schema definitions from cleaned datasets.
+* Configured ETL processes to enrich data:
+
+  * Added 'Current Timestamp' column.
+  * Dropped 'Number of Seats' due to high missingness.
+* Stored curated datasets into `s3://cs-cur-luc`.
+
+#### 5. Data Summarization:
+
+* Conducted SQL-based analysis using AWS Athena:
+
+  * Metric 1: Average Square Foot by Ownership (`avg_sqft_by_ownership`)
+  * Metric 2: Count of Cultural Spaces by Type (`num_cultural_spaces_by_type`)
+* Generated insights on ownership trends and cultural space type distributions.
+
+### Insights and Findings:
+
+* Private ownership of cultural spaces showed consistent growth in average square footage between 2014 and 2020.
+* Government and City-owned cultural spaces declined in average square footage.
+* 'Café/Restaurant/Bar' type cultural spaces increased, while 'Museums' showed a downward trend.
+
+### Recommendations:
+
+* Consider policy support for declining public and government cultural spaces.
+* Promote investment opportunities in growing sectors like Café/Restaurant/Bar to align with emerging cultural trends.
+* Regular data updates can help maintain ongoing monitoring for city planning.
+
+### Tools and Technologies:
+
+* AWS S3 (Storage & Data Lake Management)
+* AWS Glue DataBrew (Profiling & Cleaning)
+* AWS Glue Data Catalog (Metadata Management)
+* AWS Glue ETL (Data Transformation)
+* AWS Athena (Querying & Analysis)
+
+### Deliverables:
+
+* Fully functional AWS Data Analytic Platform for Cultural Spaces.
+* Cleaned, curated datasets with enriched schema.
+* SQL-based dashboards generated via AWS Athena.
+* Visual designs and architecture diagrams (to be attached from draw\.io) demonstrating full workflow.
+
+This project demonstrates end-to-end implementation of a cloud-based data analytics pipeline using AWS services, enabling public sector data-driven decision making.
+
+---
+
 
