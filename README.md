@@ -435,4 +435,37 @@ This project demonstrates secure cloud data migration, effective data governance
 
 ---
 
+## AWS Deployment and Service Models
 
+### Case Study 1: Traditional Computing Model vs Cloud Computing Model
+
+**Explanation of Results:**  
+In this case study, I compared traditional on-premises IT infrastructure with cloud computing. Traditional models require significant capital investment, manual hardware management, and ongoing maintenance. In contrast, AWS cloud computing offers on-demand scalability, consumption-based pricing, and fully managed services. This analysis demonstrated how cloud computing allows organizations to optimize costs, increase agility, and focus on business innovation rather than infrastructure management.
+
+![case-study-1-comp-model](images/case-study-1-comp-model.png)
+
+### Case Study 2: Cloud Deployment Models
+
+**Explanation of Results:**  
+I analyzed the different AWS cloud deployment models:
+- **Public Cloud** (fully hosted by AWS, multi-tenant model)
+- **Private Cloud** (dedicated cloud resources for a single organization)
+- **Hybrid Cloud** (combines on-premises infrastructure with cloud resources)
+
+For my projects, I implemented a **Public Cloud** deployment where all services were provisioned directly within AWS. This provided simplicity, scalability, and cost efficiency without needing any on-premise infrastructure.
+
+![case-study-2-comp-deploy](images/case-study-2-comp-deploy.png]
+
+### Case Study 3: Cloud Service Models
+
+**Explanation of Results:**  
+This case study focused on understanding the different AWS service models:
+- **IaaS (Infrastructure-as-a-Service):** Amazon EC2, Amazon EBS, VPC
+- **PaaS (Platform-as-a-Service):** AWS Glue, AWS Glue DataBrew
+- **SaaS (Software-as-a-Service):** AWS Pricing Calculator, AWS CloudWatch
+
+My projects used a combination of these models to build scalable data pipelines and analytics platforms fully managed in AWS, showcasing how service model selection supports flexible architecture design.
+
+![case-study-3-cloud-svc-model](images/case-study-3-cloud-svc-model.png)
+
+---
