@@ -69,3 +69,77 @@ The datasets were provided in CSV and JSON formats with quarterly read/write fre
 
 ### Summary
 This project demonstrates the implementation of a scalable AWS data lake to support HR data analytics, enabling data-driven decisions to improve employee engagement and satisfaction.
+
+---
+
+## Cost Evaluation and Dataset Cleaning for HR Data Lake on AWS
+
+### Project Description
+This project focuses on the cost evaluation of dataset ingestion and the analysis, design, and implementation of the dataset cleaning process for an HR Data Lake on AWS. As a member of the HR data team, the objective was to optimize the ingestion pipeline and ensure data quality for further analytical tasks.
+
+### Objective
+The primary objective of this project was to evaluate the ingestion cost of HR datasets and to perform a comprehensive cleaning process to prepare the data for further analysis. The datasets involved were Employee Surveys and Performance Reviews. The project aimed to identify data quality issues, design appropriate cleaning strategies using AWS Glue DataBrew, and execute data cleansing while leveraging cloud services for scalability and automation.
+
+### Dataset
+The HR department provided two datasets critical for employee satisfaction and engagement analysis:
+
+- **Employee Surveys (CSV format):** Collected feedback and responses from employees.
+- **Performance Reviews (CSV format):** Contained employee evaluations and performance metrics.
+
+### Methodology
+
+#### 1. Cost Evaluation of Dataset Ingestion
+
+- AWS Pricing Calculator was used to estimate ingestion costs based on:
+  - Storage class: S3 Standard
+  - Data volume: estimated object size and frequency (4 uploads per month)
+  - **Result:** Monthly cost of $0.02 USD, totaling $6.01 USD for one year.
+
+#### 2. Dataset Cleaning Analysis & Design
+
+- Identified data issues such as:
+  - Inconsistent schema (e.g., column name mismatches)
+  - Duplicate records
+- Cleaning strategies applied:
+  - Standardized column names and data types
+  - Removed duplicate rows
+- Designed cleaning workflows for both datasets individually.
+
+![project-2-cost-eval-design](images/project-2-cost-eval-design.jpg)
+
+#### 3. Dataset Cleaning Implementation
+
+- Implemented using AWS Glue DataBrew:
+  - Standardized column names and data types.
+  - Removed duplicate rows.
+- Created separate S3 buckets for raw and cleaned data ("raw zone" and "cleaning zone").
+- Executed Glue jobs to automate the cleaning pipelines.
+- Cleaned datasets were stored in a structured format, ready for downstream analytics.
+
+### Cloud Features Utilized
+
+- Seamless integration between AWS services (S3, Glue, DataBrew).
+- Automation of data preparation tasks.
+- Scalability to handle growing datasets.
+- Simplified orchestration of complex data workflows.
+
+### Tools and Technologies
+
+- AWS S3 for storage and ingestion
+- AWS Pricing Calculator for cost estimation
+- AWS Glue DataBrew for data cleaning and preparation
+- AWS Pricing Calculator: Cost estimation
+- Draw.io for design diagrams
+
+### Deliverables
+
+- Cost estimation report for dataset ingestion.
+- Cleaning design diagrams.
+- AWS Glue DataBrew projects for both datasets.
+- Cleaned datasets stored in S3 Cleaning Zone.
+- Visual documentation (attached diagrams from Draw.io).
+
+### Conclusion
+This project demonstrates the advantages of cloud computing for data management. By leveraging AWS services, complex tasks such as data ingestion, data cleaning, and storage organization were automated efficiently. The seamless integration between S3 and Glue DataBrew allowed for simplified data preparation and scalable storage management.
+
+---
