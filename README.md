@@ -547,7 +547,7 @@ I analyzed the different AWS cloud deployment models:
 
 For my projects, I implemented a **Public Cloud** deployment where all services were provisioned directly within AWS. This provided simplicity, scalability, and cost efficiency without needing any on-premise infrastructure.
 
-![case-study-2-comp-deploy](images/case-study-2-comp-deploy.png]
+![case-study-2-comp-deploy](images/case-study-2-comp-deploy.png)
 
 ### Case Study 3: Cloud Service Models
 
