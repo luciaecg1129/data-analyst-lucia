@@ -219,3 +219,60 @@ Both datasets were delivered in CSV, with a quarterly update frequency.
 
 ---
 
+## Cloud Data Lake Ingestion for HR Business Questions: A DAP Approach
+
+### Project Description
+This project focuses on analyzing, designing, and implementing a data lake solution to support the HR department in addressing the business question: "What are the factors influencing employee satisfaction and engagement?" The solution involved understanding the operational environment, analyzing data lineage, designing data processing pipelines, and implementing the initial ingestion phase in the cloud.
+
+### Objective
+The primary goal of this project was to create a foundational cloud-based data architecture that allows HR analysts to ingest, store, and prepare datasets for future analysis of employee satisfaction drivers. The work was focused on analyzing the existing environment, identifying data sources, and building a data ingestion solution using AWS S3.
+
+### Dataset
+The datasets provided by the HR operations team included:
+- Employee Surveys
+- Performance Reviews
+
+These datasets contain information relevant to employee sentiment, engagement levels, and performance outcomes.
+
+### Methodology
+
+#### 1. Analysis of Operational Environment
+- Identified data sources, storage locations, processing units, and system interactions.
+- Conducted a dataset lineage analysis to map data generation, storage, processing, and access permissions.
+
+![project-4-dap-design](images/project-4-dap-design.jpg)
+
+#### 2. Root Cause Analysis
+- Created a Fishbone diagram to visualize potential causes affecting employee satisfaction.
+
+![project-4-fishbone](images/project-4-fishbone.jpg)
+
+#### 3. Solution Architecture Design
+- Proposed a Data Architecture Plan (DAP) with the following components:
+  - Data Lake design on AWS S3 for initial storage.
+  - Data Cleaning strategies to address data quality issues.
+  - ETL Design transforming business questions into actionable data queries.
+  - Data Enrichment plans to enhance dataset value.
+  - Data Summarization structures to support decision-making.
+
+![project-4-solution](images/project-4-solution.jpg)
+#### 4. Implementation
+- Created a Raw Bucket in AWS S3 cloud service for initial dataset ingestion.
+- This step laid the foundation for the future ETL and analytics workflows.
+
+### Tools and Technologies
+- AWS S3 (Cloud Storage)
+- Data Architecture Planning (DAP)
+- draw.io (for architecture and process diagrams)
+
+### Deliverables
+- Full analysis of operational environment and dataset lineage.
+- Root cause diagram to understand employee satisfaction factors.
+- Solution architecture diagrams for ingestion, cleaning, transformation, enrichment, and summarization phases.
+- Cloud implementation of dataset ingestion in AWS S3 Raw Bucket.
+
+This project demonstrates the initial steps in building a scalable cloud-based data lake architecture to support advanced HR analytics and employee engagement insights.
+
+---
+
+
